@@ -33,7 +33,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
 
-        textField.resignFirstResponder()
+        self.dismissViewControllerAnimated(true, completion: nil)
         
         return false
     }
@@ -44,5 +44,5 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
 
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
 }
