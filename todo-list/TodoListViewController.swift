@@ -24,6 +24,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         
         self.title = TodoListViewController.Title
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAdd:")
+        
         self.tableView?.dataSource = self
         self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
     }
@@ -42,5 +44,12 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         cell.textLabel?.text = item
         
         return cell
+    }
+    
+    // MARK: Actions
+    
+    func didTapAdd(sender: UIBarButtonItem) {
+        
+        print("add!")
     }
 }
