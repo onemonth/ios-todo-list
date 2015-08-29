@@ -14,6 +14,7 @@
 		AFB6C6221B9221D90080C3F3 /* TodoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6201B9221D90080C3F3 /* TodoListViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		AFB6C6251B9226DF0080C3F3 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6231B9226DF0080C3F3 /* AddItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		AFB6C6261B9226DF0080C3F3 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		AFB6C6281B92327E0080C3F3 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AFB6C6201B9221D90080C3F3 /* TodoListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoListViewController.xib; sourceTree = "<group>"; };
 		AFB6C6231B9226DF0080C3F3 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
+		AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				AFB6C6201B9221D90080C3F3 /* TodoListViewController.xib */,
 				AFB6C6231B9226DF0080C3F3 /* AddItemViewController.swift */,
 				AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */,
+				AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */,
 				AFB6C6141B92212F0080C3F3 /* Assets.xcassets */,
 				AFB6C6161B92212F0080C3F3 /* LaunchScreen.storyboard */,
 				AFB6C6191B92212F0080C3F3 /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB6C6281B92327E0080C3F3 /* CacheProtocol.swift in Sources */,
 				AFB6C6211B9221D90080C3F3 /* TodoListViewController.swift in Sources */,
 				AFB6C60E1B92212F0080C3F3 /* AppDelegate.swift in Sources */,
 				AFB6C6251B9226DF0080C3F3 /* AddItemViewController.swift in Sources */,
