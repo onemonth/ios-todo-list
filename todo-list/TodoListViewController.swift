@@ -17,7 +17,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     @IBOutlet weak var tableView: UITableView?
     
     var items: NSMutableArray = NSMutableArray()
-    var cache: CacheProtocol?
+    var cache: CacheProtocol = UserDefaultsCache()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +98,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     // MARK: Cache Actions
     
     func load() {
-        let object = self.cache?.loadObjectForKey(TodoListViewController.CacheKey)
+        let object = self.cache.loadObjectForKey(TodoListViewController.CacheKey)
         
         if let object = object as? NSArray {
             self.items = NSMutableArray(array: object)
@@ -106,6 +106,6 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     }
     
     func save() {
-        self.cache?.saveObject(self.items, forKey: TodoListViewController.CacheKey)
+        self.cache.saveObject(self.items, key: TodoListViewController.CacheKey)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CacheProtocol {
-    func loadObjectForKey(key: NSString) -> NSObject?
-    func saveObject(object: NSObject, forKey: NSString)
-    func removeObjectForKey(key: NSString)
+    func loadObjectForKey(key: String) -> AnyObject?
+    func saveObject(object: AnyObject, key: String)
+    func removeObjectForKey(key: String)
 }
