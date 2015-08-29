@@ -25,6 +25,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         self.title = TodoListViewController.Title
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAdd:")
+
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
         
         self.tableView?.dataSource = self
         self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
@@ -56,6 +58,14 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         return cell
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.items.removeObjectAtIndex(indexPath.row)
+            self.tableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        }
+    }
+    
     // MARK: Actions
     
     func didTapAdd(sender: UIBarButtonItem) {
@@ -67,5 +77,13 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         navigationController.view.backgroundColor = UIColor.whiteColor()
 
         self.presentViewController(navigationController, animated: true, completion: nil)
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        self.tableView?.editing = editing
+
+        self.navigationItem.rightBarButtonItem?.enabled = !editing
     }
 }
