@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol AddItemViewControllerProtocol {
+    func addItem(item: String)
+}
+
 class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     static let Title = "Add Item"
     
     @IBOutlet weak var textField: UITextField?
 
+    var delegate: AddItemViewControllerProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,11 +35,15 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         self.textField?.delegate = self
     }
     
-    func dismiss()
-    {
+    func dismiss() {
+        
         self.dismissViewControllerAnimated(true) { () -> Void in
             
-            
+            if let delegate = self.delegate, let item = self.textField?.text where item.characters.count > 0 {
+                
+                delegate.addItem(item)
+                
+            }
             
         }
     }
