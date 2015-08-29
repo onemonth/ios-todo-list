@@ -33,7 +33,11 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     // MARK: AddItemViewControllerProtocol
 
     func addItem(item: String) {
-        print(item)
+        
+        self.items.insertObject(item, atIndex: 0)
+        
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
     }
     
     // MARK: UITableView DataSource
