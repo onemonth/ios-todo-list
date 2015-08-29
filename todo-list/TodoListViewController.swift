@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController, UITableViewDataSource {
+class TodoListViewController: UIViewController, UITableViewDataSource, AddItemViewControllerProtocol {
 
     static let Title = "Todo List"
     static let CellIdentifier = "CellIdentifier"
@@ -28,6 +28,12 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         
         self.tableView?.dataSource = self
         self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
+    }
+    
+    // MARK: AddItemViewControllerProtocol
+
+    func addItem(item: String) {
+        print(item)
     }
     
     // MARK: UITableView DataSource
@@ -51,6 +57,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
     func didTapAdd(sender: UIBarButtonItem) {
         
         let viewController = AddItemViewController()
+        viewController.delegate = self
+        
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.view.backgroundColor = UIColor.whiteColor()
 
