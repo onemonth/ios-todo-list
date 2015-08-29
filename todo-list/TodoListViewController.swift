@@ -10,10 +10,14 @@ import UIKit
 
 class TodoListViewController: UIViewController {
 
+    static let Title = "Todo List"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.title = TodoListViewController.Title
     }
 
     override func didReceiveMemoryWarning() {
