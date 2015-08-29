@@ -28,12 +28,21 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         self.textField?.becomeFirstResponder() // If you don't see the keyboard, in simulator toggle soft keyboard
         self.textField?.delegate = self
     }
+    
+    func dismiss()
+    {
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+            
+            
+        }
+    }
 
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
 
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss()
         
         return false
     }
@@ -42,7 +51,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     func didTapCancel(sender: UIBarButtonItem) {
 
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss()
     }
     
 }
