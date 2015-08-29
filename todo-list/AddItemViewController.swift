@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AddItemViewController: UIViewController {
+class AddItemViewController: UIViewController, UITextFieldDelegate {
 
     static let Title = "Add Item"
     
-    @IBOutlet weak var textView: UITextView?
+    @IBOutlet weak var textField: UITextField?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,15 @@ class AddItemViewController: UIViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "didTapCancel:")
         
-        self.textView?.becomeFirstResponder()
+        self.textField?.becomeFirstResponder()
+        self.textField?.delegate = self
     }
 
+    // MARK: UITextFieldDelegate
+    
+    
+    
+    
     // MARK: Actions
     
     func didTapCancel(sender: UIBarButtonItem) {
