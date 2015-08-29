@@ -24,6 +24,8 @@ class AddItemViewController: UIViewController {
         self.edgesForExtendedLayout = UIRectEdge.None
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "didTapCancel:")
+        
+        self.textView?.becomeFirstResponder()
     }
 
     // MARK: Actions
