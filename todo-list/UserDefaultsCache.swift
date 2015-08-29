@@ -18,7 +18,4 @@ class UserDefaultsCache: CacheProtocol {
         NSUserDefaults.standardUserDefaults().setObject(object, forKey: key)
     }
     
-    func removeObjectForKey(key: String) {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
-    }
 }

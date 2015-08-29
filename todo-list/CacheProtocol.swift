@@ -11,5 +11,4 @@ import Foundation
 protocol CacheProtocol {
     func loadObjectForKey(key: String) -> AnyObject?
     func saveObject(object: AnyObject, key: String)
-    func removeObjectForKey(key: String)
 }

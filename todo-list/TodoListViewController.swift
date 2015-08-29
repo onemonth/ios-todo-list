@@ -17,7 +17,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     @IBOutlet weak var tableView: UITableView?
     
     var items: NSMutableArray = NSMutableArray()
-    var cache: CacheProtocol = UserDefaultsCache()
+    var cache: CacheProtocol = KeyedArchiverCache()
 
     override func viewDidLoad() {
         super.viewDidLoad()

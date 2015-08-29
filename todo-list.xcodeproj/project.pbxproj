@@ -16,6 +16,7 @@
 		AFB6C6261B9226DF0080C3F3 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		AFB6C6281B92327E0080C3F3 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */; settings = {ASSET_TAGS = (); }; };
 		AFB6C62A1B9234340080C3F3 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6291B9234340080C3F3 /* UserDefaultsCache.swift */; settings = {ASSET_TAGS = (); }; };
+		AFB6C62C1B9235C00080C3F3 /* KeyedArchiverCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C62B1B9235C00080C3F3 /* KeyedArchiverCache.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddItemViewController.xib; sourceTree = "<group>"; };
 		AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheProtocol.swift; sourceTree = "<group>"; };
 		AFB6C6291B9234340080C3F3 /* UserDefaultsCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsCache.swift; sourceTree = "<group>"; };
+		AFB6C62B1B9235C00080C3F3 /* KeyedArchiverCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyedArchiverCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */,
 				AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */,
 				AFB6C6291B9234340080C3F3 /* UserDefaultsCache.swift */,
+				AFB6C62B1B9235C00080C3F3 /* KeyedArchiverCache.swift */,
 				AFB6C6141B92212F0080C3F3 /* Assets.xcassets */,
 				AFB6C6161B92212F0080C3F3 /* LaunchScreen.storyboard */,
 				AFB6C6191B92212F0080C3F3 /* Info.plist */,
@@ -152,6 +155,7 @@
 				AFB6C60E1B92212F0080C3F3 /* AppDelegate.swift in Sources */,
 				AFB6C62A1B9234340080C3F3 /* UserDefaultsCache.swift in Sources */,
 				AFB6C6251B9226DF0080C3F3 /* AddItemViewController.swift in Sources */,
+				AFB6C62C1B9235C00080C3F3 /* KeyedArchiverCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
