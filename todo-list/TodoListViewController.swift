@@ -12,15 +12,19 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
 
     static let Title = "Todo List"
     static let CellIdentifier = "CellIdentifier"
+    static let CacheKey = "CacheKey"
     
     @IBOutlet weak var tableView: UITableView?
     
     var items: NSMutableArray = NSMutableArray()
-    
+    var cache: CacheProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.load()
         
         self.title = TodoListViewController.Title
         
@@ -40,6 +44,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+        
+        self.save()
     }
     
     // MARK: UITableView DataSource
@@ -63,6 +69,8 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         if editingStyle == UITableViewCellEditingStyle.Delete {
             self.items.removeObjectAtIndex(indexPath.row)
             self.tableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        
+            self.save()
         }
     }
     
@@ -85,5 +93,19 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         self.tableView?.editing = editing
 
         self.navigationItem.rightBarButtonItem?.enabled = !editing
+    }
+    
+    // MARK: Cache Actions
+    
+    func load() {
+        let object = self.cache?.loadObjectForKey(TodoListViewController.CacheKey)
+        
+        if let object = object as? NSArray {
+            self.items = NSMutableArray(array: object)
+        }
+    }
+    
+    func save() {
+        self.cache?.saveObject(self.items, forKey: TodoListViewController.CacheKey)
     }
 }
