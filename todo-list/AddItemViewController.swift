@@ -22,6 +22,15 @@ class AddItemViewController: UIViewController {
         self.title = AddItemViewController.Title
         
         self.edgesForExtendedLayout = UIRectEdge.None
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "didTapCancel:")
+    }
+
+    // MARK: Actions
+    
+    func didTapCancel(sender: UIBarButtonItem) {
+
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

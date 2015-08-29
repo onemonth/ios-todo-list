@@ -52,6 +52,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
         
         let viewController = AddItemViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.view.backgroundColor = UIColor.whiteColor()
 
         self.presentViewController(navigationController, animated: true, completion: nil)
     }
