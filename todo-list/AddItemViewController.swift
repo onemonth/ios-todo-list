@@ -25,14 +25,18 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "didTapCancel:")
         
-        self.textField?.becomeFirstResponder()
+        self.textField?.becomeFirstResponder() // If you don't see the keyboard, in simulator toggle soft keyboard
         self.textField?.delegate = self
     }
 
     // MARK: UITextFieldDelegate
     
-    
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+
+        textField.resignFirstResponder()
+        
+        return false
+    }
     
     // MARK: Actions
     
