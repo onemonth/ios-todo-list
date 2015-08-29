@@ -8,9 +8,14 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController {
+class TodoListViewController: UIViewController, UITableViewDataSource {
 
     static let Title = "Todo List"
+    static let CellIdentifier = "CellIdentifier"
+    
+    @IBOutlet weak var tableView: UITableView?
+    
+    var items: NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,22 +23,24 @@ class TodoListViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = TodoListViewController.Title
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.tableView?.dataSource = self
+        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
     }
     
+    // MARK: UITableView DataSource
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count
     }
-    */
-
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(TodoListViewController.CellIdentifier)!
+        
+        let item = self.items[indexPath.row] as! String
+        cell.textLabel?.text = item
+        
+        return cell
+    }
 }
