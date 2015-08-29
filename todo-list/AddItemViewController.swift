@@ -19,7 +19,9 @@ class AddItemViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        self.title = AddItemViewController.Title        
+        self.title = AddItemViewController.Title
+        
+        self.edgesForExtendedLayout = UIRectEdge.None
     }
 
 }

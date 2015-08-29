@@ -50,6 +50,9 @@ class TodoListViewController: UIViewController, UITableViewDataSource {
     
     func didTapAdd(sender: UIBarButtonItem) {
         
-        print("add!")
+        let viewController = AddItemViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+
+        self.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
