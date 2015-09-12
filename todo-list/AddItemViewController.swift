@@ -35,19 +35,6 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         self.textField?.delegate = self
     }
     
-    func dismiss() {
-        
-        self.dismissViewControllerAnimated(true) { () -> Void in
-            
-            if let delegate = self.delegate, let item = self.textField?.text where item.characters.count > 0 {
-                
-                delegate.addItem(item)
-                
-            }
-            
-        }
-    }
-
     // MARK: UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -64,4 +51,19 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         self.dismiss()
     }
     
+    // MARK: Private API
+    
+    func dismiss() {
+        
+        self.dismissViewControllerAnimated(true) { () -> Void in
+            
+            if let delegate = self.delegate, let item = self.textField?.text where item.characters.count > 0 {
+                
+                delegate.addItem(item)
+                
+            }
+            
+        }
+    }
+
 }

@@ -36,6 +36,14 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
     }
     
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        self.tableView?.editing = editing
+        
+        self.navigationItem.rightBarButtonItem?.enabled = !editing
+    }
+
     // MARK: AddItemViewControllerProtocol
 
     func addItem(item: String) {
@@ -58,7 +66,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         
         let cell = tableView.dequeueReusableCellWithIdentifier(TodoListViewController.CellIdentifier)!
         
-        let item = self.items[indexPath.row] as! String
+        let item = self.items[indexPath.row] as? String
         cell.textLabel?.text = item
         
         return cell
@@ -67,6 +75,7 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            
             self.items.removeObjectAtIndex(indexPath.row)
             self.tableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
         
@@ -85,14 +94,6 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         navigationController.view.backgroundColor = UIColor.whiteColor()
 
         self.presentViewController(navigationController, animated: true, completion: nil)
-    }
-    
-    override func setEditing(editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        
-        self.tableView?.editing = editing
-
-        self.navigationItem.rightBarButtonItem?.enabled = !editing
     }
     
     // MARK: Cache Actions
