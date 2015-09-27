@@ -30,11 +30,13 @@ class KeyedArchiverCache: CacheProtocol {
     
     func archivePath(key: String) -> String {
         
-        var path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString
+        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
         
-        path = path.stringByAppendingPathComponent(key)
-        path = path.stringByAppendingPathExtension(KeyedArchiverCache.ArchiveExtension)!
-
-        return path as String
+        var URL = NSURL(string: path)!
+        
+        URL = URL.URLByAppendingPathComponent(key)
+        URL = URL.URLByAppendingPathExtension("archive")
+        
+        return URL.absoluteString as String
     }
 }
