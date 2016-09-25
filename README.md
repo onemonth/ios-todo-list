@@ -7,3 +7,5 @@ A simple ToDo list app used as teaching material for the [One Month iOS course](
 1. Accessible to the beginner    
 2. Provide a solid foundation on which to build/scale, and     
 3. To accommodate 3-4 hours of video "lecture" content.     
+
+This code is compatbile with Xcode 8 / Swift 3. 
