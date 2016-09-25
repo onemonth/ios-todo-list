@@ -12,14 +12,14 @@ class KeyedArchiverCache: CacheProtocol {
     
     static let ArchiveExtension = "archive"
     
-    func loadObjectForKey(key: String) -> AnyObject? {
+    func loadObjectForKey(_ key: String) -> AnyObject? {
         
         let path = self.archivePath(key)
         
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(path)
+        return NSKeyedUnarchiver.unarchiveObject(withFile: path) as AnyObject?
     }
     
-    func saveObject(object: AnyObject, key: String) {
+    func saveObject(_ object: AnyObject, key: String) {
 
         let path = self.archivePath(key)
 
@@ -28,14 +28,14 @@ class KeyedArchiverCache: CacheProtocol {
         
     // MARK: Utilities
     
-    func archivePath(key: String) -> String {
+    func archivePath(_ key: String) -> String {
         
-        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
-        var URL = NSURL(string: path)!
+        var URL = Foundation.URL(string: path)!
         
-        URL = URL.URLByAppendingPathComponent(key)
-        URL = URL.URLByAppendingPathExtension("archive")
+        URL = URL.appendingPathComponent(key)
+        URL = URL.appendingPathExtension("archive")
         
         return URL.absoluteString as String
     }

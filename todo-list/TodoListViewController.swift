@@ -28,56 +28,56 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
         
         self.title = TodoListViewController.Title
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "didTapAdd:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(TodoListViewController.didTapAdd(_:)))
 
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         
         self.tableView?.dataSource = self
-        self.tableView?.registerClass(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: TodoListViewController.CellIdentifier)
     }
     
-    override func setEditing(editing: Bool, animated: Bool) {
+    override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        self.tableView?.editing = editing
+        self.tableView?.isEditing = editing
         
-        self.navigationItem.rightBarButtonItem?.enabled = !editing
+        self.navigationItem.rightBarButtonItem?.isEnabled = !editing
     }
 
     // MARK: AddItemViewControllerProtocol
 
-    func addItem(item: String) {
+    func addItem(_ item: String) {
         
-        self.items.insertObject(item, atIndex: 0)
+        self.items.insert(item, at: 0)
         
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView?.insertRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Right)
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.tableView?.insertRows(at: [indexPath], with: UITableViewRowAnimation.right)
         
         self.save()
     }
     
     // MARK: UITableView DataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(TodoListViewController.CellIdentifier)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: TodoListViewController.CellIdentifier)!
         
-        let item = self.items[indexPath.row] as? String
+        let item = self.items[(indexPath as NSIndexPath).row] as? String
         cell.textLabel?.text = item
         
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
-        if editingStyle == UITableViewCellEditingStyle.Delete {
+        if editingStyle == UITableViewCellEditingStyle.delete {
             
-            self.items.removeObjectAtIndex(indexPath.row)
-            self.tableView?.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            self.items.removeObject(at: (indexPath as NSIndexPath).row)
+            self.tableView?.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
         
             self.save()
         }
@@ -85,15 +85,15 @@ class TodoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     
     // MARK: Actions
     
-    func didTapAdd(sender: UIBarButtonItem) {
+    func didTapAdd(_ sender: UIBarButtonItem) {
         
         let viewController = AddItemViewController()
         viewController.delegate = self
         
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.view.backgroundColor = UIColor.whiteColor()
+        navigationController.view.backgroundColor = UIColor.white
 
-        self.presentViewController(navigationController, animated: true, completion: nil)
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     // MARK: Cache Actions

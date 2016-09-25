@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AddItemViewControllerProtocol {
-    func addItem(item: String)
+    func addItem(_ item: String)
 }
 
 class AddItemViewController: UIViewController, UITextFieldDelegate {
@@ -27,9 +27,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
         
         self.title = AddItemViewController.Title
         
-        self.edgesForExtendedLayout = UIRectEdge.None
+        self.edgesForExtendedLayout = UIRectEdge()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "didTapCancel:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(AddItemViewController.didTapCancel(_:)))
         
         self.textField?.becomeFirstResponder() // If you don't see the keyboard, in simulator toggle soft keyboard
         self.textField?.delegate = self
@@ -37,7 +37,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: UITextFieldDelegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
         self.dismiss()
         
@@ -46,7 +46,7 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Actions
     
-    func didTapCancel(sender: UIBarButtonItem) {
+    func didTapCancel(_ sender: UIBarButtonItem) {
 
         self.dismiss()
     }
@@ -55,9 +55,9 @@ class AddItemViewController: UIViewController, UITextFieldDelegate {
     
     func dismiss() {
         
-        self.dismissViewControllerAnimated(true) { () -> Void in
+        self.dismiss(animated: true) { () -> Void in
             
-            if let delegate = self.delegate, let item = self.textField?.text where item.characters.count > 0 {
+            if let delegate = self.delegate, let item = self.textField?.text , item.characters.count > 0 {
                 
                 delegate.addItem(item)
                 

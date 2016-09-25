@@ -10,12 +10,12 @@ import Foundation
 
 class UserDefaultsCache: CacheProtocol {
     
-    func loadObjectForKey(key: String) -> AnyObject? {
-        return NSUserDefaults.standardUserDefaults().objectForKey(key)
+    func loadObjectForKey(_ key: String) -> AnyObject? {
+        return UserDefaults.standard.object(forKey: key) as AnyObject?
     }
     
-    func saveObject(object: AnyObject, key: String) {
-        NSUserDefaults.standardUserDefaults().setObject(object, forKey: key)
+    func saveObject(_ object: AnyObject, key: String) {
+        UserDefaults.standard.set(object, forKey: key)
     }
     
 }

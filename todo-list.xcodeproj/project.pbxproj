@@ -10,13 +10,13 @@
 		AFB6C60E1B92212F0080C3F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C60D1B92212F0080C3F3 /* AppDelegate.swift */; };
 		AFB6C6151B92212F0080C3F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6141B92212F0080C3F3 /* Assets.xcassets */; };
 		AFB6C6181B92212F0080C3F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6161B92212F0080C3F3 /* LaunchScreen.storyboard */; };
-		AFB6C6211B9221D90080C3F3 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C61F1B9221D90080C3F3 /* TodoListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AFB6C6221B9221D90080C3F3 /* TodoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6201B9221D90080C3F3 /* TodoListViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		AFB6C6251B9226DF0080C3F3 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6231B9226DF0080C3F3 /* AddItemViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		AFB6C6261B9226DF0080C3F3 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		AFB6C6281B92327E0080C3F3 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */; settings = {ASSET_TAGS = (); }; };
-		AFB6C62A1B9234340080C3F3 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6291B9234340080C3F3 /* UserDefaultsCache.swift */; settings = {ASSET_TAGS = (); }; };
-		AFB6C62C1B9235C00080C3F3 /* KeyedArchiverCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C62B1B9235C00080C3F3 /* KeyedArchiverCache.swift */; settings = {ASSET_TAGS = (); }; };
+		AFB6C6211B9221D90080C3F3 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C61F1B9221D90080C3F3 /* TodoListViewController.swift */; };
+		AFB6C6221B9221D90080C3F3 /* TodoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6201B9221D90080C3F3 /* TodoListViewController.xib */; };
+		AFB6C6251B9226DF0080C3F3 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6231B9226DF0080C3F3 /* AddItemViewController.swift */; };
+		AFB6C6261B9226DF0080C3F3 /* AddItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB6C6241B9226DF0080C3F3 /* AddItemViewController.xib */; };
+		AFB6C6281B92327E0080C3F3 /* CacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6271B92327E0080C3F3 /* CacheProtocol.swift */; };
+		AFB6C62A1B9234340080C3F3 /* UserDefaultsCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C6291B9234340080C3F3 /* UserDefaultsCache.swift */; };
+		AFB6C62C1B9235C00080C3F3 /* KeyedArchiverCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6C62B1B9235C00080C3F3 /* KeyedArchiverCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					AFB6C6091B92212F0080C3F3 = {
 						CreatedOnToolsVersion = 7.0;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -262,6 +263,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.onemonth.todo-list";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -273,6 +275,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.onemonth.todo-list";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -295,6 +298,7 @@
 				AFB6C61E1B92212F0080C3F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
